@@ -1,0 +1,62 @@
+h1{
+    color: rgb(247, 197, 121);
+    padding-left: 45%;
+    background:rgb(107, 52, 61) ;
+    padding-top: 2%;
+    /* position: relative; */
+}
+
+form{
+    border:  groove 2px red;
+    padding:10% 10%; 
+    margin-top:5%;
+    margin-left:10% ;
+    margin-right: 10%;
+    margin-bottom:10% ;
+    line-height: 1.8;
+    background-color: rgb(213, 140, 140);
+    border-radius: 10px;
+}
+
+form label{
+    color:black;/* margin:20px; */
+}
+form div{
+    background-color: rgb(189, 113, 113);
+
+}
+#Fname{
+    background-color:rgb(240, 200, 200);
+    border: solid 2px red;
+    border-radius: 10%;
+}
+
+#Lname{
+    background-color:rgb(240, 200, 200);
+    border: solid 2px red;
+    border-radius: 10%;
+}
+#email{
+    background-color:rgb(240, 200, 200);
+    border: solid 2px red;
+    border-radius: 10%;
+}
+
+#time{
+    background-color:rgb(240, 200, 200);
+    border: solid 2px red;
+    border-radius: 10%;
+    margin-bottom: 10px;
+}
+#Tname{
+    background-color:rgb(240, 200, 200);
+    border: solid 2px red;
+    border-radius: 10%;
+    margin-bottom: 10px;
+}
+
+.task{
+    background-color:rgb(240, 200, 200);
+    border: solid 2px red;
+    border-radius: 10%;
+}
