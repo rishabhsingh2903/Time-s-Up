@@ -130,13 +130,6 @@ element.addEventListener("submit",function(event){
     }
 })
 
-// //adding deletetask function to all taskbuttons
-// const btns=document.getElementsByClassName('deleteButton');
-// // console.log(btns)
-// if(btns){
-//     btns.forEach(btn =>
-//         btn.addEventListener('click',deleteTask))
-// }
 
 
 //To retrieve data when page is reloaded

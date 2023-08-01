@@ -73,3 +73,42 @@ form div{
     color: white;
 }
 
+
+/* CSS */
+.button-24 {
+  margin-top: 10px;
+  background: #9f2846;
+  border: 1px solid #883044;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: rgb(185, 65, 65);
+  border: 1px solid red;
+  background-position: 0 0;
+  color: #f9f9f9;
+}
+
+.button-24:active {
+  opacity: .5;
+}
