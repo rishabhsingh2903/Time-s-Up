@@ -1,4 +1,4 @@
-
+const tasks=document.getElementById('tasks');
 
 //this function gets the data from the form and adds it to the info array
 function fetchdata(){
@@ -48,7 +48,7 @@ function localRetrieve(){
 function deleteTask(event){
     taskId=this.value;
     info=localRetrieve();
-    console.log(taskId)
+    // console.log(taskId)
     info=info.filter(task =>task.Id!=taskId);
     localStorage.removeItem('TaskData');
     localStore(info);
@@ -75,12 +75,26 @@ function taskbuilder(task){
     const day=document.createElement('label');
     const linebreak1=document.createElement('br');
     const linebreak2=document.createElement('br');
-    const button=document.createElement('button');
-    button.value=task.Id;
-    button.textContent='Delete';
-    button.classList.add('deleteButton');
+
+    const deleteBtn=document.createElement('button');//button to delete task
+    deleteBtn.value=task.Id;
+    deleteBtn.textContent='Delete';
+    deleteBtn.classList.add('deleteButton');
     // adding event listener to button to delete task
-    button.addEventListener('click',deleteTask);
+    deleteBtn.addEventListener('click',deleteTask);
+
+
+    const stopBtn=document.createElement('input');//button to stop alarm
+    stopBtn.setAttribute('type','checkbox');
+    stopBtn.id=task.Id;
+    stopBtn.classList.add('stopButton');
+    stopBtn.classList.add('tog');
+    stopBtn.addEventListener('click',alarmTrigger);
+    const stopLbl=document.createElement('label');
+    stopLbl.setAttribute('for',task.Id);
+    stopLbl.classList.add('tog');
+
+
     tname.textContent=task.Tname;
     time.textContent=task.Time;
     day.textContent=dayfind(task);
@@ -89,16 +103,44 @@ function taskbuilder(task){
     paragraph.appendChild(time);
     paragraph.appendChild(linebreak2);
     paragraph.appendChild(day);
-    paragraph.appendChild(button);
+    paragraph.appendChild(deleteBtn);
+    paragraph.appendChild(stopBtn);
+    paragraph.appendChild(stopLbl);
     paragraph.classList.add('task');
 
     tasks.appendChild(paragraph);
 }
 
+//alarm
+function alarm(object){
+    
+    const alarmDate=new Date(object.Time).getTime();
+    console.log(alarmDate);
+    const currentTime=new Date().getTime();
+    console.log(currentTime);
+
+    if(!isNaN(alarmDate) && alarmDate>currentTime){
+        const timeUntilAlarm=alarmDate-currentTime;
+        setInterval(alert("alarm"),timeUntilAlarm);
+        console.log(`Alarm set for ${new Date(timeUntilAlarm).toISOString().substr(11, 8)}.`)
+    }
+}
+
+//function to toggle alarm
+function alarmTrigger(event){
+    console.log(this.checked);
+    console.log(this.id);
+    info=localRetrieve();
+    info=info.filter(task=> task.Id==this.id);
+    info=info[0];
+    console.log(info);
+    alarm(info);
+
+}
 
 //this function displays the task that we have added
 function displaycontent(){
-        const tasks=document.getElementById('tasks');
+
         tasks.innerHTML='';
         info=localRetrieve();
         if(info){
