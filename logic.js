@@ -89,7 +89,7 @@ function taskbuilder(task){
     stopBtn.id=task.Id;
     stopBtn.classList.add('stopButton');
     stopBtn.classList.add('tog');
-    stopBtn.addEventListener('click',alarmTrigger);
+    // stopBtn.addEventListener('click',alarmTrigger);
     const stopLbl=document.createElement('label');
     stopLbl.setAttribute('for',task.Id);
     stopLbl.classList.add('tog');
@@ -111,30 +111,39 @@ function taskbuilder(task){
     tasks.appendChild(paragraph);
 }
 
+
 //alarm
 function alarm(object){
-    
-    const alarmDate=new Date(object.Time).getTime();
-    console.log(alarmDate);
-    const currentTime=new Date().getTime();
-    console.log(currentTime);
-
-    if(!isNaN(alarmDate) && alarmDate>currentTime){
-        const timeUntilAlarm=alarmDate-currentTime;
-        setInterval(alert("alarm"),timeUntilAlarm);
-        console.log(`Alarm set for ${new Date(timeUntilAlarm).toISOString().substr(11, 8)}.`)
+    console.log('alarm :'+object.Tname);
+    const stopBtn=document.getElementById(object.Id);
+    stopBtn.checked=true;
+    function alarmStop(event){
+        if(!event.target.checked){
+            console.log('alarm stopped');
+            stopBtn.removeEventListener('change',alarmStop);
+        }
     }
+    stopBtn.addEventListener('change',alarmStop);
 }
 
 //function to toggle alarm
-function alarmTrigger(event){
-    console.log(this.checked);
-    console.log(this.id);
-    info=localRetrieve();
-    info=info.filter(task=> task.Id==this.id);
-    info=info[0];
-    console.log(info);
-    alarm(info);
+function alarmTrigger(task){
+    var time=task.Time;
+    time=time+'0';
+    const currentTime=new Date();
+    let cTime=currentTime.getHours() + ':'+currentTime.getMinutes()+currentTime.getSeconds();
+    if(time==cTime){
+        alarm(task);
+    }
+    // console.log(`Alarm set for ${new Date(currentTime).toISOString().substr(11, 8)}.`);
+    // console.log(h);
+    // console.log(task.Tname);
+    // console.log(this.id);
+    // info=localRetrieve();
+    // info=info.filter(task=> task.Id==this.id);
+    // info=info[0];
+    // console.log(info);
+    // alarm(info);
 
 }
 
@@ -179,3 +188,13 @@ element.addEventListener("submit",function(event){
 window.addEventListener('load',function(){
     displaycontent();
 })
+
+setInterval(function(){
+    info=localRetrieve()
+    if(info){
+        info.forEach(task=>{
+            alarmTrigger(task);
+        })
+    }
+
+},1000)
