@@ -114,6 +114,7 @@ function taskbuilder(task){
 
 //alarm
 function alarm(object){
+    speak(object.Tname);
     console.log('alarm :'+object.Tname);
     const stopBtn=document.getElementById(object.Id);
     stopBtn.checked=true;
@@ -131,22 +132,25 @@ function alarmTrigger(task){
     var time=task.Time;
     time=time+'0';
     const currentTime=new Date();
+    const day=currentday();
+    const week=dayfind(task);
+    // console.log(day);
     let cTime=currentTime.getHours() + ':'+currentTime.getMinutes()+currentTime.getSeconds();
-    if(time==cTime){
-        alarm(task);
+    
+        if(time==cTime){
+            if(week.indexOf(day)!==-1){
+                alarm(task);
+        }    
     }
-    // console.log(`Alarm set for ${new Date(currentTime).toISOString().substr(11, 8)}.`);
-    // console.log(h);
-    // console.log(task.Tname);
-    // console.log(this.id);
-    // info=localRetrieve();
-    // info=info.filter(task=> task.Id==this.id);
-    // info=info[0];
-    // console.log(info);
-    // alarm(info);
-
 }
-
+//function to get current day
+function currentday(){
+    const currentDate = new Date();
+    const dayNames = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+    const currentDayIndex = currentDate.getDay();
+    const currentDayName = dayNames[currentDayIndex];
+    return currentDayName;
+}
 //this function displays the task that we have added
 function displaycontent(){
 
@@ -188,7 +192,7 @@ element.addEventListener("submit",function(event){
 window.addEventListener('load',function(){
     displaycontent();
 })
-
+// this set interval checks for alarm every 1 sec
 setInterval(function(){
     info=localRetrieve()
     if(info){
@@ -197,4 +201,22 @@ setInterval(function(){
         })
     }
 
-},1000)
+},1000);
+
+
+//voice message when alarm is triggered
+
+if('speechSynthesis' in window){
+    var synth=window.speechSynthesis;
+    function speak(text){
+        if(text!==''){
+            var utterance=new SpeechSynthesisUtterance('alarm triggered for'+text+'task');
+            utterance.rate=0.75;
+            synth.speak(utterance);
+        }
+    }
+}
+else{
+    alert('Sorry, your browser does not support the Web Speech API.');
+}
+
