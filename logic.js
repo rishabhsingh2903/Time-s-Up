@@ -1,5 +1,6 @@
 const tasks=document.getElementById('tasks');
-
+//notification permission
+const perm =Notification.requestPermission()
 //this function gets the data from the form and adds it to the info array
 function fetchdata(){
 
@@ -114,8 +115,23 @@ function taskbuilder(task){
 
 //alarm
 function alarm(object){
+    //SPEECH
     speak(object.Tname);
-    console.log('alarm :'+object.Tname);
+    //NOTIFICATION
+    perm.then(p=>{
+        if(p==='granted'){
+            console.log("hello");
+            const note=new Notification('Notification',{
+                body:"notification for alarm: "+object.Tname,
+            })
+
+            note.addEventListener('error',e=>{
+                console.log(e);
+            })
+        }
+    })
+
+    // console.log('alarm :'+object.Tname);
     const stopBtn=document.getElementById(object.Id);
     stopBtn.checked=true;
     function alarmStop(event){
@@ -219,4 +235,5 @@ if('speechSynthesis' in window){
 else{
     alert('Sorry, your browser does not support the Web Speech API.');
 }
+
 
