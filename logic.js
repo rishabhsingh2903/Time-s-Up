@@ -115,6 +115,9 @@ function taskbuilder(task){
 
 //alarm
 function alarm(object){
+    //Email
+    //just turn on this line to send email
+    // SendMail(object.Tname,object.Email);
     //SPEECH
     speak(object.Tname);
     //NOTIFICATION
@@ -145,6 +148,7 @@ function alarm(object){
 
 //function to toggle alarm
 function alarmTrigger(task){
+
     var time=task.Time;
     time=time+'0';
     const currentTime=new Date();
@@ -236,4 +240,12 @@ else{
     alert('Sorry, your browser does not support the Web Speech API.');
 }
 
+//sending Email
+function SendMail(name,mail){
+    var params={
+        Tname:name,
+        email:mail
+    }
+    emailjs.send("service_03lb0z9","template_2shsvwo",params);
+}
 
