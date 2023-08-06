@@ -123,7 +123,6 @@ function alarm(object){
     //NOTIFICATION
     perm.then(p=>{
         if(p==='granted'){
-            console.log("hello");
             const note=new Notification('Notification',{
                 body:"notification for alarm: "+object.Tname,
             })
