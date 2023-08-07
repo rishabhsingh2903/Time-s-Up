@@ -16,42 +16,27 @@ form{
     line-height: 1.8;
     background-color: rgb(213, 140, 140);
     border-radius: 10px;
+    color: #FFFFFF;
 }
 
-form label{
-    color:black;/* margin:20px; */
-}
-form div{
-    background-color: rgb(189, 113, 113);
 
-}
-#Fname{
-    background-color:rgb(240, 200, 200);
-    border: solid 2px red;
-    border-radius: 10%;
-}
 
-#Lname{
-    background-color:rgb(240, 200, 200);
-    border: solid 2px red;
-    border-radius: 10%;
-}
 #email{
     background-color:rgb(240, 200, 200);
     border: solid 2px red;
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
 #time{
     background-color:rgb(240, 200, 200);
     border: solid 2px red;
-    border-radius: 10%;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 #Tname{
     background-color:rgb(240, 200, 200);
     border: solid 2px red;
-    border-radius: 10%;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 

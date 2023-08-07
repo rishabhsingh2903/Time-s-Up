@@ -5,37 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time's Up</title>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Time's Up</h1>
-    <form id="form">
-        <label for="Tname">Task Name</label><br>
-        <input type="text" id="Tname" name="Tname" required><br>
-        <label for="email">Email address</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="time">Time</label><br>
-        <input type="time" id="time" name="time" required><br>
-        <div class="checkbox">
-            <label>Choose days</label><br>
-            <input type="checkbox" id="mon" name="day_name" value="mon">
-            <label for="mon">Monday</label><br>
-            <input type="checkbox" id="tues" name="day_name " value="tues">
-            <label for="tues">Tuesday</label><br>
-            <input type="checkbox" id="wed" name="day_name" value="wed">
-            <label for="wed">Wednesday</label><br>
-            <input type="checkbox" id="thurs" name="day_name" value="thurs">
-            <label for="thurs">Thursday</label><br>
-            <input type="checkbox" id="fri" name="day_name" value="fri">
-            <label for="fri">Friday</label><br>
-            <input type="checkbox" id="sat" name="day_name" value="sat">
-            <label for="sat">Saturday</label><br>
-            <input type="checkbox" id="sun" name="day_name" value="sun">
-            <label for="sun">Sunday</label><br>
+    <h1 class="col-sm-12 col-md-12 col-lg-12" class="container">Time's Up</h1>
+    <form id="form" class=" p-5 border bg-secondary bg-gradient ">
+
+        <div class="checkbox row">
+            <div >
+                <label for="Tname">Task Name</label><br>
+                <input type="text" id="Tname" name="Tname" required><br>
+                <label for="email">Email address</label><br>
+                <input type="email"  id="email" name="email" required><br>
+                <label for="time">Time</label><br>
+                <input type="time" id="time" name="time" required><br>
+                <label >Choose days</label><br>
+            </div>
+            <div class=" col-sm-12 col-md-6 col-lg-6 "> 
+
+                <input type="checkbox" id="mon" name="day_name" value="mon">
+                <label for="mon">Monday</label><br>
+
+                <input type="checkbox" id="wed" name="day_name" value="wed">
+                <label for="wed">Wednesday</label><br>
+                <input type="checkbox" id="fri" name="day_name" value="fri">
+                <label for="fri">Friday</label><br>
+                <input type="checkbox" id="sun" name="day_name" value="sun">
+                <label for="sun">Sunday</label><br>
+
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <input type="checkbox" id="tues" name="day_name " value="tues">
+                <label for="tues">Tuesday</label><br>
+                <input type="checkbox" id="thurs" name="day_name" value="thurs">
+                <label  for="thurs">Thursday</label><br>
+
+                <input type="checkbox" id="sat" name="day_name" value="sat">
+                <label for="sat">Saturday</label><br>
+
+            </div>
+
+            <button class="button-24  col-sm-2 col-md-2 col-lg-2 " role="submit">Add Task</button>
              
         </div>
-        <button class="button-24" role="submit">Add Task</button>
+
         <!-- <input type="submit" value="Add Task" >        -->
     </form>
     <div id="tasks">
@@ -44,6 +58,7 @@
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script type="text/javascript">
         (function(){
             emailjs.init("zWjTLYMotokMMaMqv");
