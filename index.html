@@ -66,3 +66,60 @@
     </script>
 </body>
 </html>
+
+
+<!-- class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+
+
+
+        def read_list(link_list):
+            num=''
+            while link_list.next:
+                num=num+str(link_list.val)
+                link_list=link_list.next
+            num=num+str(link_list.val)
+            return num
+
+        def add_list(list1,list2):
+            sum=''
+            carry=0
+
+            for i in range(max(len(list1),len(list2))):
+                if(len(list1)>i and len(list2)>i):
+                    temp=int(list1[i])+int(list2[i])+carry
+                elif(len(list1)>i):
+                    temp=int(list1[i])+carry
+                else:
+                    temp=int(list2[i])+carry
+                if temp>=10:
+                    sum=sum+ str(temp-10)
+                    carry=1
+                else:
+                    sum=sum+str(temp)
+                    carry=0
+            if(carry==1):
+                sum=sum+'1'
+            return sum    
+
+        def create_list(result):
+            l=ListNode(result[0],None)
+            itr=l
+       
+            for i in range(1,len(result)):
+                node=ListNode(result[i],None)
+
+                itr.next=node
+                itr=itr.next
+        
+            return l
+    
+        arr1=read_list(l1)
+        arr2=read_list(l2)
+        result=add_list(arr1,arr2)
+        return create_list(result) -->
