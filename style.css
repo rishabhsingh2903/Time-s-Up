@@ -1,20 +1,23 @@
+body{
+  background-color: rgb(201, 219, 242);
+}
 h1{
-    color: rgb(247, 197, 121);
+    color: rgb(201, 219, 242);
     padding-left: 45%;
-    background:rgb(107, 52, 61) ;
+    background:rgb(65, 75, 91) ;
     padding-top: 2%;
     /* position: relative; */
 }
 
 form{
-    border:  groove 2px red;
+    border:  groove 2px rgb(65, 75, 91);
     padding:10% 10%; 
     margin-top:5%;
     margin-left:10% ;
     margin-right: 10%;
     margin-bottom:10% ;
     line-height: 1.8;
-    background-color: rgb(213, 140, 140);
+    background-color: rgb(201, 219, 242);
     border-radius: 10px;
     color: #FFFFFF;
 }
@@ -22,20 +25,20 @@ form{
 
 
 #email{
-    background-color:rgb(240, 200, 200);
-    border: solid 2px red;
+    background-color:rgb(201, 219, 242);
+    border: solid 2px rgb(65, 75, 91);
     border-radius: 10px;
 }
 
 #time{
-    background-color:rgb(240, 200, 200);
-    border: solid 2px red;
+    background-color:rgb(201, 219, 242);
+    border: solid 2px rgb(65, 75, 91);
     border-radius: 10px;
     margin-bottom: 10px;
 }
 #Tname{
-    background-color:rgb(240, 200, 200);
-    border: solid 2px red;
+    background-color:rgb(201, 219, 242);
+    border: solid 2px rgb(65, 75, 91);
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -108,40 +111,10 @@ form{
 
 
 
-
-/* (A) TOGGLE BUTTON CONTAINER */
-label.tog {
-    /* (A1) DIMENSIONS */
-    display: block; width: 50px; height: 30px;
-   
-    /* (A2) COSMETICS */
-    border: 5px solid #cacaca;
-    background: #cacaca;
-    cursor: pointer;
-  }
-
-
-  /* (B) "INNER SWITCH" */
-label.tog::before {
-    /* (B1) DIMENSIONS */
-    content: "";
-    display: block; width: 50%; height: 100%;
-   
-    /* (B2) COSMETICS */
-    background: #fff;
-  }
-
-
-/* (C1) HIDE CHECKBOX */
-input.tog { display: none; }
- 
-/* (C2) CHANGE SWITCH POSITION */
-input.tog:checked + label.tog::before {
-  position: relative; left: 50%;
+.stopBtn{
+  position: absolute; /* Set the button to absolute positioning */
+  bottom: 10px; /* Adjust the top and right values to position the button */
+  right: 20px;
 }
- 
-/* (C3) CHANGE COLOR */
-input.tog:checked + label.tog {
-  border: 5px solid #2285f5;
-  background: #2285f5;
-}
+
+

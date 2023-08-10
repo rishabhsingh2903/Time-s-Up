@@ -80,20 +80,29 @@ function taskbuilder(task){
     const deleteBtn=document.createElement('button');//button to delete task
     deleteBtn.value=task.Id;
     deleteBtn.textContent='Delete';
-    deleteBtn.classList.add('deleteButton');
+
+    deleteBtn.setAttribute('class','btn btn-danger deleteButton');
     // adding event listener to button to delete task
     deleteBtn.addEventListener('click',deleteTask);
+
+    const div=document.createElement('div');
+    div.setAttribute('class','form-check form-switch stopBtn');
 
 
     const stopBtn=document.createElement('input');//button to stop alarm
     stopBtn.setAttribute('type','checkbox');
+    stopBtn.setAttribute('class','form-check-input');
     stopBtn.id=task.Id;
-    stopBtn.classList.add('stopButton');
-    stopBtn.classList.add('tog');
+    // stopBtn.classList.add('stopButton');
+    // stopBtn.classList.add('form-switch');
+    // stopBtn.classList.add('form-switch');
+    // stopBtn.classList.add('tog');
     // stopBtn.addEventListener('click',alarmTrigger);
     const stopLbl=document.createElement('label');
     stopLbl.setAttribute('for',task.Id);
-    stopLbl.classList.add('tog');
+    stopLbl.classList.add('form-check-label');
+    div.appendChild(stopBtn);
+    div.appendChild(stopLbl);
 
 
     tname.textContent=task.Tname;
@@ -105,9 +114,11 @@ function taskbuilder(task){
     paragraph.appendChild(linebreak2);
     paragraph.appendChild(day);
     paragraph.appendChild(deleteBtn);
-    paragraph.appendChild(stopBtn);
-    paragraph.appendChild(stopLbl);
-    paragraph.classList.add('task');
+    // paragraph.appendChild(stopBtn);
+    // paragraph.appendChild(stopLbl);
+    paragraph.appendChild(div);
+    paragraph.setAttribute('class','p-5 border bg-secondary bg-gradient task');
+    // paragraph.classList.add('task');
 
     tasks.appendChild(paragraph);
 }
@@ -137,6 +148,7 @@ function alarm(object){
     const stopBtn=document.getElementById(object.Id);
     stopBtn.checked=true;
     function alarmStop(event){
+
         if(!event.target.checked){
             console.log('alarm stopped');
             stopBtn.removeEventListener('change',alarmStop);
@@ -149,15 +161,21 @@ function alarm(object){
 function alarmTrigger(task){
 
     var time=task.Time;
-    time=time+'0';
+    t=time.split(':');
+    HR=parseInt(t[0],10);
+    MIN=parseInt(t[1],10);
+    // console.log(t);
     const currentTime=new Date();
+
     const day=currentday();
     const week=dayfind(task);
     // console.log(day);
-    let cTime=currentTime.getHours() + ':'+currentTime.getMinutes()+currentTime.getSeconds();
-    
-        if(time==cTime){
+    // let cTime=currentTime.getHours() + ':'+currentTime.getMinutes()+currentTime.getSeconds();
+    // console.log(time);
+    // console.log(cTime);
+        if(HR==currentTime.getHours() && MIN==currentTime.getMinutes() && currentTime.getSeconds()==0){
             if(week.indexOf(day)!==-1){
+
                 alarm(task);
         }    
     }

@@ -9,39 +9,43 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1 class="col-sm-12 col-md-12 col-lg-12" class="container">Time's Up</h1>
+    <h1 class="col-sm-12 col-md-12 col-lg-12 text-center container" >Time's Up</h1>
     <form id="form" class=" p-5 border bg-secondary bg-gradient ">
 
         <div class="checkbox row">
             <div >
-                <label for="Tname">Task Name</label><br>
+                <label for="Tname" >Task Name</label><br>
                 <input type="text" id="Tname" name="Tname" required><br>
-                <label for="email">Email address</label><br>
-                <input type="email"  id="email" name="email" required><br>
-                <label for="time">Time</label><br>
-                <input type="time" id="time" name="time" required><br>
+
+                <label for="email" >Email address</label><br>
+                <input type="email"  id="email" name="email"  required><br>
+
+                <label for="time" >Time</label><br>
+                <input type="time" id="time" name="time"  required><br>
                 <label >Choose days</label><br>
+
             </div>
+
             <div class=" col-sm-12 col-md-6 col-lg-6 "> 
 
-                <input type="checkbox" id="mon" name="day_name" value="mon">
+                <input type="checkbox" id="mon" name="day_name" value="mon"class='form-check-input'>
                 <label for="mon">Monday</label><br>
 
-                <input type="checkbox" id="wed" name="day_name" value="wed">
+                <input type="checkbox" id="wed" name="day_name" value="wed"class='form-check-input'>
                 <label for="wed">Wednesday</label><br>
-                <input type="checkbox" id="fri" name="day_name" value="fri">
+                <input type="checkbox" id="fri" name="day_name" value="fri"class='form-check-input'>
                 <label for="fri">Friday</label><br>
-                <input type="checkbox" id="sun" name="day_name" value="sun">
+                <input type="checkbox" id="sun" name="day_name" value="sun"class='form-check-input'>
                 <label for="sun">Sunday</label><br>
 
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <input type="checkbox" id="tues" name="day_name " value="tues">
+                <input type="checkbox" id="tues" name="day_name " value="tues"class='form-check-input'>
                 <label for="tues">Tuesday</label><br>
-                <input type="checkbox" id="thurs" name="day_name" value="thurs">
+                <input type="checkbox" id="thurs" name="day_name" value="thurs"class='form-check-input'>
                 <label  for="thurs">Thursday</label><br>
 
-                <input type="checkbox" id="sat" name="day_name" value="sat">
+                <input type="checkbox" id="sat" name="day_name" value="sat"class='form-check-input'>
                 <label for="sat">Saturday</label><br>
 
             </div>
@@ -68,58 +72,3 @@
 </html>
 
 
-<!-- class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-
-
-
-        def read_list(link_list):
-            num=''
-            while link_list.next:
-                num=num+str(link_list.val)
-                link_list=link_list.next
-            num=num+str(link_list.val)
-            return num
-
-        def add_list(list1,list2):
-            sum=''
-            carry=0
-
-            for i in range(max(len(list1),len(list2))):
-                if(len(list1)>i and len(list2)>i):
-                    temp=int(list1[i])+int(list2[i])+carry
-                elif(len(list1)>i):
-                    temp=int(list1[i])+carry
-                else:
-                    temp=int(list2[i])+carry
-                if temp>=10:
-                    sum=sum+ str(temp-10)
-                    carry=1
-                else:
-                    sum=sum+str(temp)
-                    carry=0
-            if(carry==1):
-                sum=sum+'1'
-            return sum    
-
-        def create_list(result):
-            l=ListNode(result[0],None)
-            itr=l
-       
-            for i in range(1,len(result)):
-                node=ListNode(result[i],None)
-
-                itr.next=node
-                itr=itr.next
-        
-            return l
-    
-        arr1=read_list(l1)
-        arr2=read_list(l2)
-        result=add_list(arr1,arr2)
-        return create_list(result) -->
