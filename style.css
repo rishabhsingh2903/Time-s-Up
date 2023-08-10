@@ -1,23 +1,32 @@
 body{
-  background-color: rgb(201, 219, 242);
+  background-color: rgb(213,208,222);
+  font-family: 'Roboto', sans-serif;
 }
-h1{
-    color: rgb(201, 219, 242);
-    padding-left: 45%;
-    background:rgb(65, 75, 91) ;
+.title{
+    color: rgba(255,255,255,255);
+
+    background:rgba(77,37,136,255) ;
     padding-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     /* position: relative; */
 }
-
+.logo {
+  width: auto; /* Let the height determine the size */
+  height: 50px; /* Set a fixed height */
+  padding:5px 5px;
+}
 form{
-    border:  groove 2px rgb(65, 75, 91);
+    border:  groove 2px rgba(77,37,136,255);
     padding:10% 10%; 
     margin-top:5%;
     margin-left:10% ;
     margin-right: 10%;
     margin-bottom:10% ;
     line-height: 1.8;
-    background-color: rgb(201, 219, 242);
+    background-color: rgba(255,255,255,255);
     border-radius: 10px;
     color: #FFFFFF;
 }
@@ -25,20 +34,20 @@ form{
 
 
 #email{
-    background-color:rgb(201, 219, 242);
-    border: solid 2px rgb(65, 75, 91);
+    background-color:rgb(213,208,222);
+    border: solid 2px rgba(77,37,136,255);
     border-radius: 10px;
 }
 
 #time{
-    background-color:rgb(201, 219, 242);
-    border: solid 2px rgb(65, 75, 91);
+    background-color:rgb(213,208,222);
+    border: solid 2px rgba(77,37,136,255);
     border-radius: 10px;
     margin-bottom: 10px;
 }
 #Tname{
-    background-color:rgb(201, 219, 242);
-    border: solid 2px rgb(65, 75, 91);
+    background-color:rgb(213,208,222);
+    border: solid 2px rgba(77,37,136,255);
     border-radius: 10px;
     margin-bottom: 10px;
 }
