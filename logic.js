@@ -128,7 +128,7 @@ function taskbuilder(task){
 function alarm(object){
     //Email
     //just turn on this line to send email
-    // SendMail(object.Tname,object.Email);
+    SendMail(object.Tname,object.Email);
     //SPEECH
     speak(object.Tname);
     //NOTIFICATION
